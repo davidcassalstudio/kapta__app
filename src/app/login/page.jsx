@@ -20,7 +20,7 @@ export default function login() {
             const res = await signIn('credentials', {
                 email,
                 senha,
-                redirect: false
+                redirect: false,
             });
 
             if (res.error) {
@@ -39,7 +39,7 @@ export default function login() {
             <h1>Login</h1>
             <form onSubmit={sendLogin}>
                 <input type='email' name='email' id='email' placeholder='email' onChange={e => setEmail(e.target.value)}/>
-                <input type='password' name='password' id='password' placeholder='password' onChange={e => setSenha(e.target.value)}/>
+                <input type='text' name='password' id='password' placeholder='password' onChange={e => setSenha(e.target.value)}/>
                 <button type='submit'>Entrar</button>
 
                 { error && (

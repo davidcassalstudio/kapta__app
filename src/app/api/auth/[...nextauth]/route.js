@@ -1,12 +1,13 @@
 import { connectToDB } from "@/lib/utils";
 import User from "@/models/user";
 import NextAuth from "next-auth/next";
-import CredentialsProvider from "next-auth/providers/credentials";
-import bcrypt from 'bcryptjs'
+import { NextAuthOptions } from "next-auth";
+import CredentialProvider from "next-auth/providers/credentials";
+import bcrypt from "bcrypt";
 
-const authOptions = {
+export const authOptions = {
     providers: [
-        CredentialsProvider({
+        CredentialProvider({
             name: 'credentials',
             credentials: {},
 
@@ -30,7 +31,7 @@ const authOptions = {
 
                     return user;
                 } catch (error) {
-                    console.log('Erro: ', error);
+                    console.log(error);
                 }
             },
         }),
